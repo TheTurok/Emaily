@@ -3,7 +3,7 @@ const express = require ('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send({hi: 'there'}); //route handler in expreses
+  res.send({bye: 'buddy'}); //route handler in expreses
 });
 
 const PORT = process.env.PORT || 5000
