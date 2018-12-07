@@ -1,9 +1,14 @@
 const express = require ('express');
-require('./services/passport');
+const mongoose = require('mongoose');
+const keys = require('./config/keys'); //getting the keys
+require('./models/User');
+require('./services/passport'); //running passport
 
+
+mongoose.connect(keys.mongoURI);
 
 const app = express();
-require('./routes/authRoutes')(app);
+require('./routes/authRoutes')(app); //google authentication
 
 
 const PORT = process.env.PORT || 5000
