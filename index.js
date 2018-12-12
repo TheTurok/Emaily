@@ -13,7 +13,7 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-app.use(
+app.use(  //COOKIE IS THE SESSION
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [keys.cookieKey]
