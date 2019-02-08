@@ -10,7 +10,7 @@ module.exports = (app) =>{
   app.post('/api/stripe', requireLogin, async (req,res) => {
 
     const charge = await stripe.charges.create({
-      amount:500,
+      amount: 500,
       currency: 'usd',
       description: 'emaily 5 dollar charger for 5 survey credits',
       source: req.body.id,
