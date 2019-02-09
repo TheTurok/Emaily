@@ -13,7 +13,9 @@ require('./models/Survey');
 
 require('./services/passport'); //running passport
 
-
+//mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+//mongoose.connect(keys.mongoURI);
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
 const app = express();
