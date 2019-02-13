@@ -19,8 +19,8 @@ class Mailer extends helper.Mail{
     this.addRecipients();
   }
 
-  formatAddresses(rec){
-    return rec.map(({email}) => {
+  formatAddresses(recipients){
+    return recipients.map(({email}) => {
       return new helper.Email(email);
     });
   }

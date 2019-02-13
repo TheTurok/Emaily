@@ -1,6 +1,6 @@
 module.exports = (survey) => {
-  return
+  return(
   '<div>' +
   survey.body
-  + '</div>';
+  + '</div>');
 };
