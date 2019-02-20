@@ -4,12 +4,13 @@ import React, {Component} from 'react';
 import  {reduxForm, Field} from 'redux-form';
 import SurveyField from './SurveyField';
 import {Link} from 'react-router-dom';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
   {label: 'Survey Title' , name: 'title'},
   {label: 'Subject', name: 'subject'},
   {label: 'Body', name: 'body'},
-  {label: 'Recipients', name: 'recipients'}
+  {label: 'Recipients', name: 'recipient'}
 ];
 
 class SurveyForm extends Component {
@@ -26,7 +27,7 @@ class SurveyForm extends Component {
   render(){
     return (
       <div>
-        <form onSubmit = {this.props.handleSubmit(values => console.log(values) )}>
+        <form onSubmit = {this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
           <Link to ="/surveys" className = "red btn-flat left white-text">
             Cancel
@@ -45,21 +46,15 @@ class SurveyForm extends Component {
 function validate(values){
   const errors = {};
 
-  if(!values.title){
-    errors.title = 'You must provide a title';
-  }
+  errors.recipient = validateEmails(values.recipient || '');
 
-  if(!values.subject){
-    errors.subject = 'You must provide a subject';
-  }
+  _.each(FIELDS, ({name}) => {
+    if(!values[name]){
+      errors[name] = 'You must provide a ' + name;
+    }
+  });
 
-  if(!values.body){
-    errors.body = 'You must provide a body';
-  }
 
-  if(!values.recipients){
-    errors.recipients = 'You must have recipients';
-  }
 
   return errors;
 }
