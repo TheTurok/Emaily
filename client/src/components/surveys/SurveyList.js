@@ -29,6 +29,11 @@ class SurveyList extends Component {
     return(
       <div>
         <h2> Survey Records </h2>
+        <p>
+          To test out Emaily. Please Login with Google.
+          For Stripe Payment enter 4242424242424242 for card number and a valid expiration date with any number for the CVC.
+          Please keep emails to a minimum, only 100 emails can be sent a day with multiples people checking out my website.
+        </p>
         {this.renderSurveys()}
       </div>
     );
