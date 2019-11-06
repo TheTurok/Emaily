@@ -8,8 +8,11 @@ const Landing = () => {
       </h3>
       <p>
         To test out Emaily. Please Login with Google.
+        <br>
+        If already logged in please, press home button 'Emaily' to see survey list
+        <br>
         For Stripe Payment enter 4242424242424242 for card number and a valid expiration date with any number for the CVC.
-        Please keep emails to a minimum, only 100 emails can be sent a day with multiples people checking out my website. 
+        Please keep emails to a minimum, only 100 emails can be sent a day with multiples people checking out my website.
       </p>
     </div>
   );
